@@ -593,7 +593,7 @@
 // Homing hits each endstop, retracts by these distances, then does a slower bump.
 #define X_HOME_BUMP_MM 0
 #define Y_HOME_BUMP_MM 0
-#define Z_HOME_BUMP_MM 4
+#define Z_HOME_BUMP_MM 2
 #define HOMING_BUMP_DIVISOR { 2, 2, 4 }  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 //#define QUICK_HOME                     // If homing includes X and Y, do a diagonal move initially
 //#define HOMING_BACKOFF_MM { 2, 2, 2 }  // (mm) Move away from the endstops after homing
@@ -1109,7 +1109,7 @@
   #if ENABLED(SDCARD_SORT_ALPHA)
     #define SDSORT_LIMIT       40     // Maximum number of sorted items (10-256). Costs 27 bytes each.
     #define FOLDER_SORTING     -1     // -1=above  0=none  1=below
-    #define SDSORT_GCODE       false  // Allow turning sorting on/off with LCD and M34 g-code.
+    #define SDSORT_GCODE       false  // Allow turning sorting on/off with LCD and M34 G-code.
     #define SDSORT_USES_RAM    false  // Pre-allocate a static array for faster pre-sorting.
     #define SDSORT_USES_STACK  false  // Prefer the stack for pre-sorting to give back some SRAM. (Negated by next 2 options.)
     #define SDSORT_CACHE_NAMES false  // Keep sorted items in RAM longer for speedy performance. Most expensive option.
@@ -1353,10 +1353,10 @@
   //#define TOUCH_UI_800x480
 
   // Mappings for boards with a standard RepRapDiscount Display connector
-  //#define AO_EXP1_PINMAP    // AlephObjects CLCD UI EXP1 mapping
-  //#define AO_EXP2_PINMAP    // AlephObjects CLCD UI EXP2 mapping
-  //#define CR10_TFT_PINMAP   // Rudolph Riedel's CR10 pin mapping
-  //#define S6_TFT_PINMAP     // FYSETC S6 pin mapping
+  //#define AO_EXP1_PINMAP      // AlephObjects CLCD UI EXP1 mapping
+  //#define AO_EXP2_PINMAP      // AlephObjects CLCD UI EXP2 mapping
+  //#define CR10_TFT_PINMAP     // Rudolph Riedel's CR10 pin mapping
+  //#define S6_TFT_PINMAP       // FYSETC S6 pin mapping
 
   //#define OTHER_PIN_LAYOUT  // Define pins manually below
   #if ENABLED(OTHER_PIN_LAYOUT)
@@ -1512,7 +1512,7 @@
  * If this algorithm produces a higher speed offset than the extruder can handle (compared to E jerk)
  * print acceleration will be reduced during the affected moves to keep within the limit.
  *
- * See http://marlinfw.org/docs/features/lin_advance.html for full instructions.
+ * See https://marlinfw.org/docs/features/lin_advance.html for full instructions.
  * Mention @Sebastianv650 on GitHub to alert the author of any issues.
  */
 #define LIN_ADVANCE
@@ -2536,7 +2536,7 @@
    * Monitor L6470 drivers for error conditions like over temperature and over current.
    * In the case of over temperature Marlin can decrease the drive until the error condition clears.
    * Other detected conditions can be used to stop the current print.
-   * Relevant g-codes:
+   * Relevant G-codes:
    * M906 - I1/2/3/4/5  Set or get motor drive level using axis codes X, Y, Z, E. Report values if no axis codes given.
    *         I not present or I0 or I1 - X, Y, Z or E0
    *         I2 - X2, Y2, Z2 or E1
@@ -2654,7 +2654,7 @@
  * You'll need to select a pin for the ON/OFF function and optionally choose a 0-5V
  * hardware PWM pin for the speed control and a pin for the rotation direction.
  *
- * See http://marlinfw.org/docs/configuration/laser_spindle.html for more config details.
+ * See https://marlinfw.org/docs/configuration/laser_spindle.html for more config details.
  */
 //#define SPINDLE_FEATURE
 //#define LASER_FEATURE
