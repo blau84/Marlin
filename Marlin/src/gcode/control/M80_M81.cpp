@@ -72,8 +72,9 @@
     #endif
 
     #if DISABLED(AUTO_POWER_CONTROL)
-      delay(PSU_POWERUP_DELAY); // Wait for power to settle
+      safe_delay(PSU_POWERUP_DELAY);
       restore_stepper_drivers();
+      TERN_(HAS_TRINAMIC_CONFIG, safe_delay(PSU_POWERUP_DELAY));
     #endif
 
     #if HAS_LCD_MENU

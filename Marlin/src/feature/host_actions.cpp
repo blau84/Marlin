@@ -37,7 +37,8 @@
   #include "runout.h"
 #endif
 
-void host_action(const char * const pstr, const bool eol) {
+void host_action(PGM_P const pstr, const bool eol) {
+  PORT_REDIRECT(SERIAL_BOTH);
   SERIAL_ECHOPGM("//action:");
   serialprintPGM(pstr);
   if (eol) SERIAL_EOL();
@@ -74,12 +75,20 @@ void host_action(const char * const pstr, const bool eol) {
   PromptReason host_prompt_reason = PROMPT_NOT_DEFINED;
 
   void host_action_notify(const char * const message) {
+    PORT_REDIRECT(SERIAL_BOTH);
+    host_action(PSTR("notification "), false);
+    SERIAL_ECHOLN(message);
+  }
+
+  void host_action_notify_P(PGM_P const message) {
+    PORT_REDIRECT(SERIAL_BOTH);
     host_action(PSTR("notification "), false);
     serialprintPGM(message);
     SERIAL_EOL();
   }
 
-  void host_action_prompt(const char * const ptype, const bool eol=true) {
+  void host_action_prompt(PGM_P const ptype, const bool eol=true) {
+    PORT_REDIRECT(SERIAL_BOTH);
     host_action(PSTR("prompt_"), false);
     serialprintPGM(ptype);
     if (eol) SERIAL_EOL();
@@ -87,6 +96,7 @@ void host_action(const char * const pstr, const bool eol) {
 
   void host_action_prompt_plus(const char * const ptype, const char * const pstr, const char extra_char='\0') {
     host_action_prompt(ptype, false);
+    PORT_REDIRECT(SERIAL_BOTH);
     SERIAL_CHAR(' ');
     serialprintPGM(pstr);
     if (extra_char != '\0') SERIAL_CHAR(extra_char);

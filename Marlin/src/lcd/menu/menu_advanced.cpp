@@ -189,7 +189,8 @@ void menu_cancelobject();
         autotune_temp[e]
       #endif
     );
-    lcd_enqueue_one_now(cmd);
+    queue.inject(cmd);
+    ui.return_to_status();
   }
 
 #endif // PID_AUTOTUNE_MENU

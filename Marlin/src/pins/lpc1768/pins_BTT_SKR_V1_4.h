@@ -319,9 +319,13 @@
 
     #endif // !FYSETC_MINI_12864
 
-  #endif
+  #endif // HAS_GRAPHICAL_LCD
 
 #endif // HAS_SPI_LCD
+
+#if HAS_ADC_BUTTONS
+  #error "ADC BUTTONS do not work unmodifed on SKR 1.4, The ADC ports cannot take more than 3.3v."
+#endif
 
 //
 // Neopixel LED
