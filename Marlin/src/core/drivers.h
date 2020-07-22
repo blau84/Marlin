@@ -182,6 +182,13 @@
 #endif
 
 //
+// TMC26XX Stepper Drivers
+//
+#if HAS_DRIVER(TMC26X)
+  #define HAS_TMC26X 1
+#endif
+
+//
 // L64XX Stepper Drivers
 //
 #define _SDCARD_LCD          1
