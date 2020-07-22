@@ -1867,11 +1867,11 @@ uint32_t Stepper::block_phase_isr() {
 
       #if ENABLED(ADAPTIVE_STEP_SMOOTHING)
         // Decide if axis smoothing is possible
-        uint32_t max_rate = current_block->nominal_rate;  // Get the maximum rate (maximum event speed)
+        uint32_t max_rate = current_block->nominal_rate;    // Get the step event rate
         while (max_rate < MIN_STEP_ISR_FREQUENCY) {         // As long as more ISRs are possible...
           max_rate <<= 1;                                   // Try to double the rate
-          if (max_rate >= MAX_STEP_ISR_FREQUENCY_1X) break; // Don't exceed the estimated ISR limit
-          ++oversampling;                                   // Increase the oversampling (used for left-shift)
+          if (max_rate < MIN_STEP_ISR_FREQUENCY)            // Don't exceed the estimated ISR limit
+            ++oversampling;                                 // Increase the oversampling (used for left-shift)
         }
         oversampling_factor = oversampling;                 // For all timer interval calculations
       #endif

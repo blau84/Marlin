@@ -155,6 +155,10 @@ void HAL_timer_enable_interrupt(const uint8_t timer_num);
 void HAL_timer_disable_interrupt(const uint8_t timer_num);
 bool HAL_timer_interrupt_enabled(const uint8_t timer_num);
 
+// Configure timer priorities for peripherals such as Software Serial or Servos.
+// Exposed here to allow all timer priority information to reside in timers.cpp
+void SetTimerInterruptPriorities();
+
 //TIM_TypeDef* HAL_timer_device(const uint8_t timer_num); no need to be public for now. not public = not used externally
 
 // FORCE_INLINE because these are used in performance-critical situations

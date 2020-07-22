@@ -523,9 +523,9 @@
 #elif MB(CCROBOT_MEEB_3DP)
   #include "stm32f1/pins_CCROBOT_MEEB_3DP.h"    // STM32F1                                env:STM32F103RC_meeb
 #elif MB(CHITU3D_V5)
-  #include "stm32f1/pins_CHITU3D_V5.h"          // STM32F1                                env:chitu_f103 env:chitu_v5_gpio_init env:chitu_f103_lvgl
+  #include "stm32f1/pins_CHITU3D_V5.h"          // STM32F1                                env:chitu_f103 env:chitu_v5_gpio_init
 #elif MB(CHITU3D_V6)
-  #include "stm32f1/pins_CHITU3D_V6.h"          // STM32F1                                env:chitu_f103 env:chitu_f103_lvgl
+  #include "stm32f1/pins_CHITU3D_V6.h"          // STM32F1                                env:chitu_f103
 #elif MB(CREALITY_V4)
   #include "stm32f1/pins_CREALITY_V4.h"         // STM32F1                                env:STM32F103RET6_creality
 #elif MB(TRIGORILLA_PRO)
@@ -591,7 +591,6 @@
 //
 
 #elif MB(ESPRESSIF_ESP32)
-
   #include "esp32/pins_ESP32.h"                 // ESP32                                  env:esp32
 #elif MB(MRR_ESPA)
   #include "esp32/pins_MRR_ESPA.h"              // ESP32                                  env:esp32
